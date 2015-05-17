@@ -14,8 +14,8 @@ shinyUI(pageWithSidebar(
   
   # Sidebar with a slider input for number of bins
   sidebarPanel(
-     actionButton("uncheckBtn", "Uncheck All"),
-     actionButton("check", "Check All"),            
+#     actionButton("uncheckBtn", "Uncheck All"),
+#     actionButton("check", "Check All"),            
      checkboxGroupInput("issuevect", label = NULL, choices = (integrateds = levels(integrateds)), selected = integrateds)
    ),
                                           # formerly issues2 ^
@@ -24,10 +24,10 @@ shinyUI(pageWithSidebar(
     tableOutput("indicatorResults"),
     textInput("requireds", "Required Indicators"),
     textInput("excludeds", "Excluded Indicators"),
-    submitButton(text="Calculate Checklist"),
-    textOutput("foo"),
-    textOutput("exOut"),
-    tags$head(tags$script(src = "message-handler.js"))
+    submitButton(text="Calculate Checklist")
+#    textOutput("foo"),
+#    textOutput("exOut")
+#    tags$head(tags$script(src = "message-handler.js"))
       
   )
 ))
