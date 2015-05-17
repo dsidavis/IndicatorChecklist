@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <script type="application/shiny-singletons"></script>
+  <script type="application/html-dependencies">json2[2014.02.04];jquery[1.11.0];shiny[0.11.1];bootstrap[3.3.1]</script>
+<script src="shared/json2-min.js"></script>
+<script src="shared/jquery.min.js"></script>
+<link href="shared/shiny.css" rel="stylesheet" />
+<script src="shared/shiny.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="shared/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+<script src="shared/bootstrap/js/bootstrap.min.js"></script>
+<script src="shared/bootstrap/shim/html5shiv.min.js"></script>
+<script src="shared/bootstrap/shim/respond.min.js"></script>
+  <title>Prototype of Checklist Generator Prototype</title>
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12">
+        <h1>Prototype of Checklist Generator Prototype</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-4">
+        <form class="well">
+          <div id="issuevect" class="form-group shiny-input-checkboxgroup shiny-input-container">
+            <div class="shiny-options-group">
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" name="issuevect" id="issuevect1" value="Agricultural sector" checked="checked"/>
+                  <span>Agricultural sector</span>
+                </label>
+              </div>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" name="issuevect" id="issuevect2" value="Air &amp; climate" checked="checked"/>
+                  <span>Air &amp; climate</span>
+                </label>
+              </div>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" name="issuevect" id="issuevect3" value="Biodiversity" checked="checked"/>
+                  <span>Biodiversity</span>
+                </label>
+              </div>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" name="issuevect" id="issuevect4" value="Common pool resources" checked="checked"/>
+                  <span>Common pool resources</span>
+                </label>
+              </div>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" name="issuevect" id="issuevect5" value="Deforestation" checked="checked"/>
+                  <span>Deforestation</span>
+                </label>
+              </div>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" name="issuevect" id="issuevect6" value="Disasters" checked="checked"/>
+                  <span>Disasters</span>
+                </label>
+              </div>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" name="issuevect" id="issuevect7" value="Diseases" checked="checked"/>
+                  <span>Diseases</span>
+                </label>
+              </div>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" name="issuevect" id="issuevect8" value="Ecosystem services" checked="checked"/>
+                  <span>Ecosystem services</span>
+                </label>
+              </div>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" name="issuevect" id="issuevect9" value="Educational resources" checked="checked"/>
+                  <span>Educational resources</span>
+                </label>
+              </div>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" name="issuevect" id="issuevect10" value="Energy" checked="checked"/>
+                  <span>Energy</span>
+                </label>
+              </div>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" name="issuevect" id="issuevect11" value="Finance" checked="checked"/>
+                  <span>Finance</span>
+                </label>
+              </div>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" name="issuevect" id="issuevect12" value="Food production" checked="checked"/>
+                  <span>Food production</span>
+                </label>
+              </div>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" name="issuevect" id="issuevect13" value="Geographical distribution" checked="checked"/>
+                  <span>Geographical distribution</span>
+                </label>
+              </div>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" name="issuevect" id="issuevect14" value="Governance" checked="checked"/>
+                  <span>Governance</span>
+                </label>
+              </div>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" name="issuevect" id="issuevect15" value="Human rights" checked="checked"/>
+                  <span>Human rights</span>
+                </label>
+              </div>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" name="issuevect" id="issuevect16" value="Income" checked="checked"/>
+                  <span>Income</span>
+                </label>
+              </div>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" name="issuevect" id="issuevect17" value="Inputs" checked="checked"/>
+                  <span>Inputs</span>
+                </label>
+              </div>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" name="issuevect" id="issuevect18" value="Institutions" checked="checked"/>
+                  <span>Institutions</span>
+                </label>
+              </div>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" name="issuevect" id="issuevect19" value="Labor" checked="checked"/>
+                  <span>Labor</span>
+                </label>
+              </div>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" name="issuevect" id="issuevect20" value="Land and soil" checked="checked"/>
+                  <span>Land and soil</span>
+                </label>
+              </div>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" name="issuevect" id="issuevect21" value="Literacy" checked="checked"/>
+                  <span>Literacy</span>
+                </label>
+              </div>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" name="issuevect" id="issuevect22" value="Markets" checked="checked"/>
+                  <span>Markets</span>
+                </label>
+              </div>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" name="issuevect" id="issuevect23" value="Nutritional status" checked="checked"/>
+                  <span>Nutritional status</span>
+                </label>
+              </div>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" name="issuevect" id="issuevect24" value="Oceans &amp; coasts" checked="checked"/>
+                  <span>Oceans &amp; coasts</span>
+                </label>
+              </div>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" name="issuevect" id="issuevect25" value="Participation" checked="checked"/>
+                  <span>Participation</span>
+                </label>
+              </div>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" name="issuevect" id="issuevect26" value="Population growth" checked="checked"/>
+                  <span>Population growth</span>
+                </label>
+              </div>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" name="issuevect" id="issuevect27" value="Population structure" checked="checked"/>
+                  <span>Population structure</span>
+                </label>
+              </div>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" name="issuevect" id="issuevect28" value="Poverty" checked="checked"/>
+                  <span>Poverty</span>
+                </label>
+              </div>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" name="issuevect" id="issuevect29" value="Productivity" checked="checked"/>
+                  <span>Productivity</span>
+                </label>
+              </div>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" name="issuevect" id="issuevect30" value="Property rights" checked="checked"/>
+                  <span>Property rights</span>
+                </label>
+              </div>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" name="issuevect" id="issuevect31" value="Protected areas" checked="checked"/>
+                  <span>Protected areas</span>
+                </label>
+              </div>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" name="issuevect" id="issuevect32" value="Public health" checked="checked"/>
+                  <span>Public health</span>
+                </label>
+              </div>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" name="issuevect" id="issuevect33" value="Reproductive health" checked="checked"/>
+                  <span>Reproductive health</span>
+                </label>
+              </div>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" name="issuevect" id="issuevect34" value="Safety" checked="checked"/>
+                  <span>Safety</span>
+                </label>
+              </div>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" name="issuevect" id="issuevect35" value="Social structure" checked="checked"/>
+                  <span>Social structure</span>
+                </label>
+              </div>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" name="issuevect" id="issuevect36" value="Sociocultural systems" checked="checked"/>
+                  <span>Sociocultural systems</span>
+                </label>
+              </div>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" name="issuevect" id="issuevect37" value="Technology" checked="checked"/>
+                  <span>Technology</span>
+                </label>
+              </div>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" name="issuevect" id="issuevect38" value="Trade policies" checked="checked"/>
+                  <span>Trade policies</span>
+                </label>
+              </div>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" name="issuevect" id="issuevect39" value="Wastes and pollution" checked="checked"/>
+                  <span>Wastes and pollution</span>
+                </label>
+              </div>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" name="issuevect" id="issuevect40" value="Water" checked="checked"/>
+                  <span>Water</span>
+                </label>
+              </div>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" name="issuevect" id="issuevect41" value="Women &amp; wages" checked="checked"/>
+                  <span>Women &amp; wages</span>
+                </label>
+              </div>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" name="issuevect" id="issuevect42" value="Women&#39;s participation" checked="checked"/>
+                  <span>Women's participation</span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="col-sm-8">
+        <div id="indicatorResults" class="shiny-html-output"></div>
+        <div class="form-group shiny-input-container">
+          <label for="requireds">Required Indicators</label>
+          <input id="requireds" type="text" class="form-control" value=""/>
+        </div>
+        <div class="form-group shiny-input-container">
+          <label for="excludeds">Excluded Indicators</label>
+          <input id="excludeds" type="text" class="form-control" value=""/>
+        </div>
+        <div>
+          <button type="submit" class="btn btn-primary">Calculate Checklist</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>

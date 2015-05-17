@@ -1,0 +1,29 @@
+
+Perhaps arranging the Issues 
+ 1)  in two tabs - one alphabetically, the other by group.
+       The group one could be arranged hierarchically.
+      The two sets of checkboxes can be synchronzized as we did for the 
+
+ 2)  one list of checkboxes color coded by group.
+
+Having the Calculate Checklist button above the result table of indicators
+means that it is not moving around the page as the number of rows in the table changes.
+
+Provide another page listing all of the indicators.
+
+Make it easier to specify the indicators to include or exclude.
+  Allow the viewer to click on an id in the result table and include/exclude it.
+
+
+Package:
+If distributing this for others to use is of interest,
+ 1) create an R package with a function run() to launch the app when the package
+    is loaded.
+ 2) add functions to retrieve updated data from a Web site.
+
+
+
+
+How do we color code the groups?
+ 
+  Can arrange them into groups within the panel in ui.R

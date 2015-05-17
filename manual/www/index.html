@@ -1,0 +1,120 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta charset="UTF-8"> 
+<title></title>
+
+<script src="shared/jquery.js" type="text/javascript"></script>
+<script src="shared/shiny.js" type="text/javascript"></script>
+
+<script src="checkboxes.js"></script>
+<script src="issues.js"></script>
+
+<link rel="stylesheet" type="text/css" href="shared/shiny.css"/>
+<link rel="stylesheet" href="checklist.css"></link>
+
+
+<link href="shared/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+
+
+  <script type="application/shiny-singletons"></script>
+  <script type="application/html-dependencies">json2[2014.02.04];jquery[1.11.0];shiny[0.11.1];bootstrap[3.3.1]</script>
+<script src="shared/json2-min.js"></script>
+<script src="shared/jquery.min.js"></script>
+<link href="shared/shiny.css" rel="stylesheet" />
+<script src="shared/shiny.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="shared/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+<script src="shared/bootstrap/js/bootstrap.min.js"></script>
+<script src="shared/bootstrap/shim/html5shiv.min.js"></script>
+<script src="shared/bootstrap/shim/respond.min.js"></script>
+<!-- -->
+</head>
+
+<body>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1>Prototype of Checklist Generator Prototype</h1>
+     </div>
+   </div>
+
+
+
+<div class="row">
+<div class="col-sm-4 well">  
+ <div>
+  <input type="button" onclick="uncheckAll(false);" value="Uncheck All"></input>
+  <input type="button" onclick="uncheckAll(true);" value="Check All"></input>
+ </div>  
+
+ <div id="issuevect" class="form-group shiny-input-checkboxgroup shiny-input-container">
+ <div class="shiny-options-group" id="issuevectX">
+<script>
+var p = document.getElementById('issuevectX');
+
+for(var i = 0 ; i < issues.length; i++) {
+  var div = document.createElement('div');
+  div.class= 'checkbox';
+  div.innerHTML = '<label><input type="checkbox" name="issuevect" id="issuevect' + (i+1) + '"value="' + issues[i] + '" checked="checked" onchange="toggleCheckbox(this, 1);"/><span>' + issues[i] + '</span> </label> </div>';
+  p.appendChild(div);
+  checkboxes[issues[i]] = [ document.getElementById('issuevect'+(i+1)) ];
+}
+</script>  
+</div>
+</div>
+</div>
+
+
+ <div class="col-sm-8">
+   <div id="indicatorResults" class="shiny-html-output"></div>
+     <div class="form-group shiny-input-container">
+            <label for="requireds">Required Indicators</label>
+            <input id="requireds" type="text" class="form-control" value=""/>
+     </div>
+   <div class="form-group shiny-input-container">
+     <label for="excludeds">Excluded Indicators</label>
+     <input id="excludeds" type="text" class="form-control" value=""/>
+   </div>
+   <div>
+     <button type="submit" class="btn btn-primary">Calculate Checklist</button>
+   </div>
+  </div>
+
+ </div>
+</div>
+
+<div class="row">
+<div id="IssueBreakdown"  style="float: left">
+ <div class="xcol-sm-8" style="float: left">  
+  <div class="Impact subgroup" id="Impact"  style="float: left">
+  <h4>Impact &amp; Mitigation</h4>  
+   <script>createCheckboxes(ImpactIssues, "Impact");</script>  
+  </div>
+ </div>
+ <div class="xcol-sm-8" style="float: left">
+  <div class="Vulnerability subgroup" id="Vulnerability"  style="float: left">
+    <h4>Vulnerability &amp; Resilience</h4>  
+    <script>createCheckboxes(VulnerabilityIssues, "Vulnerability");</script>  
+  </div>
+  </div>
+  <div id="CapitalGroups" class="xcol-sm-8" style="float:left"> 
+   <div id="Capital1" style="float: left"><h4>Capital 1</h4></div>
+   <div id="Capital2" style="float: left"><h4>Capital 2</h4></div>
+   <div id="Capital3" style="float: left"><h4>Capital 3</h4></div>
+   <div id="Capital4" style="float: left"><h4>Capital 4</h4></div>
+   <div id="Capital5" style="float: left"><h4>Capital 5</h4></div>
+   <div id="Capital6" style="float: left"><h4>Capital 6</h4></div>
+   <script>createCheckboxes(CapitalIssues, "Capital"); </script>
+   </div>
+  </div>
+</div>
+</div>
+
+
+
+
+<hr style="clear: both">
+</body> </html>

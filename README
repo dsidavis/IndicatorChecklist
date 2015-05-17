@@ -1,0 +1,95 @@
+We have several different approaches to adding the desired feature.
+1) We can attempt to do this entirely within shiny and R.
+2) Alternatively, we can create the two sets of checkboxes in R and 
+   then add JavaScript code to synchronize them.
+3) We can author the HTML document directly (with JavaScript to create the checkboxes), and connect the elements to the shiny server.
+
+
+
+3) gives us most control, at the expense of not creating the interface in R.
+   The facilities in R for creating an HTML document are fine, but not as direct as creating
+   the page ourselves. 
+   We put the index.html file in the www/ directory. This index.html page is what shiny
+   will display when we call shinyAppDir() with the parent directory of the www/ directory.
+
+   + We serialize the names of the issues to a file (issues.js) as JSON arrays (or potentially associative arrays in the future).
+     There is one array containing all the issues, and 3 variables for the different groups:
+          Impact
+          Vulnerability
+          Capital
+     The Capital array is made up of sub-arrays corresponding to the six sub-groups.
+
+   + JavaScript code uses these arrays to generate sets of checkboxes
+       a) the entire collection of issues
+       b) a group of checkboxes, one for each of the different subgroups of issues.
+
+Critically, we use the same structure
+
+
+To get the layout to be very similar to what we would generate via a ui.R file,
+we can generate the HTML file from the original ui.R file and then recreate
+its structure manually. 
+
+In order to associate the checkboxes we (programmatically) create in the HTML
+document, we 
+  1) put them inside a <div> whose id attribute is the name of the
+     R element in the input, i.e., issuevect
+  2) set the class on the <div> to be form-group shiny-input-checkboxgroup shiny-input-container
+
+  
+ <div id="issuevect" class="form-group shiny-input-checkboxgroup shiny-input-container">
+ <div class="shiny-options-group" id="issuevectX">
+
+ The "shiny-options-group" class on the second <div> is not necessary.
+
+We create the initial set of checkboxes via JavaScript code in the body of the 
+HTML document.
+Similarly, we create the subgroups of checkboxes via JavaScript code in a different part of the HTML 
+document.
+We create an associative array indexed by the names of the issues.  For each issue,
+the element in this assoc. array is a simple array of length 2 containing
+the two checkboxes for that issue.  When the viewer toggles either, we update both so that they are synchronized.
+
+
+
+We could create the primary collection  of checkboxes via a ui.R file (as in the original checklist/ code)
+and then programmatically add the subgroups and connect the two sets together.
+
+
+
+
+Symphony
++ Signals
+ The symphony code catches signals such as SIGINT and provides an option:
+   Do you want to abort immediately, exit gracefully (from the current solve call only), or continue? [a/e/c]
+ This is simply unhelpful.  We should continue as R is back in control.
+ But we cannot interrupt R in the usual way! So aborting is the only option.
+ The code that sets this up
+    void sym_catch_c(int num) 
+  in SYMPHONY-5.6.10/SYMPHONY/src/TreeManager/tm_func.c
+
+  The configure file in the SYMPHONY sub-directory has a  --disable-signal-handler with which we can disable this.
+  This is the SYMPHONY-5.6.10 in the svn repository:
+      svn checkout https://projects.coin-or.org/svn/SYMPHONY/releases/5.6.10 SYMPHONY-5.6.10
+
++ pkg-config .pc file
+  Symphony provides a .pc file so that we can use pkg-config to query the compiler and linker flags.
+  Unfortunately, it has include/coin  in the pre-processor include path, e.g., -I/usr/local/include/coin 
+  It should remove the /coin part so that we can refer to the include file as #include <coin/symphony.h>.
+  
+
+Rsymphony
+  The configure file for Rsymphony needs some improvements.
+  
+  +  Remove the /coin from the output of pkg-config --cflags symphony.
+     (Should be done by symphony itself. See above.)
+
+  + Output the symphony pre-processor/compilation flags into Makevars so that 
+    R CMD SHLIB can use them.
+      echo "PKG_CPPFLAGS=${SYMPHONY_CPPFLAGS}" > Makevars
+    I don't believe R CMD SHLIB is passing these on.
+    (Still overridden.)
+  
+
+[Ignore]  +  Remove /dev/null from the pkg-config calls and the compulation of conftest.cc 
+ 
